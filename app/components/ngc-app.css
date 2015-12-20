@@ -1,0 +1,11 @@
+[ng-click] {
+  cursor: pointer;
+}
+tr:hover{
+	background-color: grey;
+}
+
+td:not(:first-child) {
+  padding-top:10px;
+  padding-bottom:10px;
+}

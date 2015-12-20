@@ -23,7 +23,7 @@ var paths = {
   ],
   index: './app/index.html',
   build: './build/'
-}
+};
 /* 1 */
 gulp.task('clean', function(){
   gulp.src( paths.build, { read: false } )
@@ -41,7 +41,7 @@ gulp.task('usemin', [ 'copy' ], function(){
       css: [ minifyCss(), 'concat' ],
       js: [ ngmin(), uglify() ]
     }))
-    .pipe(gulp.dest( paths.build ))
+    .pipe(gulp.dest( paths.build ));
 });
 
 gulp.task('build', ['usemin']);

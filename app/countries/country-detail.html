@@ -1,0 +1,27 @@
+<section id="country-detail-section">
+	<h2>{{country.detail.countryName}}</h2>
+	<table>
+		<tr>
+			<td>Population of Country:</td>
+			<td>{{country.detail.population | number:0}}</td>
+		</tr>
+		<tr>
+			<td>Area:</td>
+			<td>{{country.detail.areaInSqKm | number:0}}</td>
+		</tr>
+		<tr>
+			<td>Capital:</td>
+			<td>{{country.detail.capital}}</td>
+		</tr>
+		<tr>
+			<td>Population of Capital:</td>
+			<td></td>
+		</tr>
+	<!-- 	<tr>
+			<td>{{country.numberOfNeighbors}} neighbors:</td>
+			<td>{{country.neighbors}}</td>
+		</tr> -->
+	</table>
+	<div id="map"></div>
+	<div id="flag"></div>
+</section>
