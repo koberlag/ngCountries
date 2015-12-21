@@ -15,13 +15,13 @@
 		</tr>
 		<tr>
 			<td>Population of Capital:</td>
-			<td></td>
+			<td>{{country.capital.population | number:0}}</td>
 		</tr>
-	<!-- 	<tr>
-			<td>{{country.numberOfNeighbors}} neighbors:</td>
-			<td>{{country.neighbors}}</td>
-		</tr> -->
 	</table>
-	<div id="map"></div>
-	<div id="flag"></div>
+	<span>{{country.neighbours.length}} neighbours:</span>
+	<ul ng-repeat="neighbour in country.neighbours">
+		<li><a ng-href="">{{ neighbour.name }}</a></li>
+	</ul>
+	<img ng-src="http://www.geonames.org/flags/x/{{country.detail.countryCode | lowercase}}.gif" />
+	<img id='myImage' ng-src="http://www.geonames.org/img/country/250/{{country.detail.countryCode | uppercase}}.png" />
 </section>

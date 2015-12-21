@@ -10,7 +10,7 @@ angular.module('ngcApp', ['ngRoute', 'ngAnimate', 'ngcLibrary'])
       templateUrl : './countries/country-list.html',
       controller : 'CountriesController as countries'
     })
-    .when('/countries/:country',{
+    .when('/countries/:country/capital',{
       templateUrl : './countries/country-detail.html',
       controller : 'CountryController as country'
     })

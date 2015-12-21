@@ -7,6 +7,6 @@ angular.module('ngcApp')
 	});
 
 	$scope.viewCountryDetails = function(countryCode){
-		$location.path("/countries/" + countryCode);
+		$location.path("/countries/" + countryCode + "/capital");
 	};
 }]);
