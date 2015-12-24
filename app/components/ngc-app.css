@@ -1,7 +1,7 @@
 [ng-click] {
   cursor: pointer;
 }
-tr:hover{
+#country-list-section tbody tr:hover{
 	background-color: grey;
 }
 

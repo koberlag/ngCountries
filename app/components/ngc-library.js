@@ -1,6 +1,5 @@
 angular.module('ngcLibrary', [])
 .constant('NGC_BASE_PATH','http://api.geonames.org')
-.constant('NGC_USER_NAME_PATH','?username=koberlag')
 .constant('NGC_USER_NAME','koberlag')
 .constant('NGC_COUNTRY_INFO_PATH', '/countryInfoJSON')
 .constant('NGC_SEARCH_PATH', '/searchJSON')
