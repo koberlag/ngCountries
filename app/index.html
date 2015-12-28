@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="ngcApp">
 <head>
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans|Montserrat' rel='stylesheet' type='text/css'>
 	<!-- build:css ./_assets/combined.css -->
-	<link href='https://fonts.googleapis.com/css?family=Nixie+One|Raleway|Open+Sans|Fjalla+One|Montserrat|Cinzel+Decorative:700' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" type="text/css" href="./bower_components/font-awesome/css/font-awesome.min.css" />
 	<link rel="stylesheet" type="text/css" href="./components/ngc-app.css" />
 	<!-- endbuild -->
@@ -19,8 +19,8 @@
 			</ul>
 		</nav>
 	</header>
-	<div id="breadcrumbs"></div>
-	<div ng-view></div>
+	<div ng-if="isLoading" class="loading">Loading <i class="fa fa-cog fa-spin"></i></div>
+	<div ng-if="!isLoading" ng-view class="slide"></div>
 <!-- build:js ./_assets/combined.js -->
 <script src="./bower_components/angular/angular.js"></script>
 <script src="./bower_components/angular-route/angular-route.js"></script>
@@ -28,8 +28,7 @@
 <script src="./ngc-app.js"></script>
 <script src="./components/ngc-library.js"></script>
 <script src="./home/home-controller.js"></script>
-<script src="./countries/country-list.js"></script>
-<script src="./countries/country-detail.js"></script>
+<script src="./countries/country-controller.js"></script>
 <!-- endbuild -->
 </body>
 </html>
