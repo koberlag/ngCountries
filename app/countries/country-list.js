@@ -1,12 +1,29 @@
 angular.module('ngcApp')
-.controller('CountriesController', ['$scope','ngcCountries', '$routeParams', '$location', function($scope, ngcCountries, $routeParams, $location){
-	var vm = this;
+.controller('CountriesController', ['$scope','ngcCountries', 'ngcCapital', 'ngcNeighbours','$routeParams', '$location', function($scope, ngcCountries, ngcCapital, ngcNeighbours,$routeParams, $location){
+	var vm = this,
+	countryCode = $routeParams.country;
 	vm.list = [];
-	ngcCountries().then(function(data){
-
-		vm.list = data.geonames;
-	});
-
+	vm.detail = [];
+	if(countryCode)
+	{
+		ngcCountries(countryCode)
+		.then(function(data){
+			vm.detail = data.geonames[0];
+			return ngcCapital(vm.detail.capital, vm.detail.countryCode);
+		})
+		.then(function(data){
+			vm.capital = data.geonames[0];
+			return ngcNeighbours(vm.detail.geonameId);
+		})
+		.then(function(data){
+			vm.neighbours = data.geonames;
+		});
+	}
+	else{
+		ngcCountries().then(function(data){
+			vm.list = data.geonames;
+		});
+	}
 
 	$scope.sortType = 'name';
 	$scope.sortReverse = false;
@@ -28,18 +45,6 @@ angular.module('ngcApp')
            });
         }
 	};
-
-	// $scope.orderBy = function(country){
-	// 	if(sortType === 'population'){
-	// 		return parseInt(country.population);
-	// 	}
-	// 	else if(sortType === 'areaInSqKm'){
-	// 		return parseFloat(country.areaInSqKm);
-	// 	}
-	// 	else{
-	// 		return sortType;
-	// 	}
-	// }
 
 	$scope.viewCountryDetails = function(countryCode){
 		$location.path("/countries/" + countryCode + "/capital");

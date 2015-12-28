@@ -1,27 +1,51 @@
 <section id="country-detail-section">
 	<h2>{{country.detail.countryName}}</h2>
-	<table>
-		<tr>
-			<td>Population of Country:</td>
-			<td>{{country.detail.population | number:0}}</td>
-		</tr>
-		<tr>
-			<td>Area:</td>
-			<td>{{country.detail.areaInSqKm | number:0}}</td>
-		</tr>
-		<tr>
-			<td>Capital:</td>
-			<td>{{country.detail.capital}}</td>
-		</tr>
-		<tr>
-			<td>Population of Capital:</td>
-			<td>{{country.capital.population | number:0}}</td>
-		</tr>
-	</table>
-	<span>{{country.neighbours.length}} neighbours:</span>
-	<ul ng-repeat="neighbour in country.neighbours">
-		<li><a ng-href="">{{ neighbour.name }}</a></li>
-	</ul>
-	<img ng-src="http://www.geonames.org/flags/x/{{country.detail.countryCode | lowercase}}.gif" />
-	<img id='myImage' ng-src="http://www.geonames.org/img/country/250/{{country.detail.countryCode | uppercase}}.png" />
+
+	<div>
+		<table>
+			<tr>
+				<td>Population of Country:</td>
+				<td>{{country.detail.population | number:0}}</td>
+			</tr>
+			<tr>
+				<td>Area:</td>
+				<td>{{country.detail.areaInSqKm | number:0}}</td>
+			</tr>
+			<tr>
+				<td>Capital:</td>
+				<td>{{country.detail.capital}}</td>
+			</tr>
+			<tr>
+				<td>Population of Capital:</td>
+				<td>{{country.capital.population | number:0}}</td>
+			</tr>
+		</table>
+	</div>
+
+	<div >
+		<img ng-src="http://www.geonames.org/flags/x/{{country.detail.countryCode | lowercase}}.gif" />
+	</div>
+
+	<div>
+		<table id="neighbours-table">
+			<thead>
+				<tr>
+					<th>
+						{{country.neighbours.length}} Neighbours:
+					</th>	
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="neighbour in country.neighbours">
+					<td ng-click="viewCountryDetails(neighbour.countryCode)">
+						{{ neighbour.name }}
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+	<div>
+		<img id='myImage' ng-src="http://www.geonames.org/img/country/250/{{country.detail.countryCode | uppercase}}.png" />
+	</div>
 </section>

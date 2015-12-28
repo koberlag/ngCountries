@@ -7,6 +7,7 @@ var minifyCss = require('gulp-minify-css');
 var usemin = require('gulp-usemin');
 var rev = require('gulp-rev');
 var clean = require('gulp-clean');
+var sass = require('gulp-sass');
 
 var paths = {
   scripts: [ 'app/**/*.js', '!app/bower_components/**/*.js' ],
@@ -25,6 +26,16 @@ var paths = {
   build: './build/'
 };
 /* 1 */
+gulp.task('sass', function () {
+  gulp.src('./app/components/ngc-app.scss')
+    .pipe(sass().on('error', sass.logError))
+    .pipe(gulp.dest('./app/components/'));
+});
+ 
+gulp.task('sass:watch', function () {
+  gulp.watch('./app/components/ngc-app.scss', ['sass']);
+});
+
 gulp.task('clean', function(){
   gulp.src( paths.build, { read: false } )
     .pipe(clean());

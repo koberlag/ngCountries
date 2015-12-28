@@ -1,11 +1,116 @@
+html {
+  box-sizing: border-box; }
+
+*, *::after, *::before {
+  box-sizing: inherit; }
+
+html {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
+*, *:before, *:after {
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  box-sizing: inherit; }
+
+body {
+  margin: 0;
+  font-family: 'Open Sans', sans-serif;
+  background-color: #282d32;
+  color: rgba(255, 255, 255, 0.8); }
+
+header {
+  margin: 0;
+  background-color: #fff; }
+  header h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 24px;
+    display: inline-block;
+    margin: 0 0 0 1em;
+    color: #282d32; }
+  header nav {
+    display: inline-block; }
+  header ul {
+    margin: 0 0 0 2em;
+    padding: 0; }
+  header li {
+    display: inline-block;
+    padding: .5em;
+    border-radius: 4px;
+    margin: .25em; }
+  header a {
+    color: #282d32;
+    text-decoration: none; }
+  header li:hover {
+    background-color: #282d32; }
+    header li:hover a {
+      color: #fff; }
+
+.list-container {
+  width: 80%;
+  margin: 0 auto; }
+  .list-container table {
+    border-collapse: collapse;
+    margin: 2em auto 0;
+    width: 100%; }
+    .list-container table td {
+      padding-left: .5em; }
+
+ul {
+  list-style-type: none; }
+
+#search-container {
+  width: 100%;
+  max-width: 500px;
+  margin: 1em 0 1em 0; }
+
+#search-box {
+  padding: .75em;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 350px;
+  border: none;
+  border-radius: 4px;
+  font-size: 1em; }
+
 [ng-click] {
-  cursor: pointer;
-}
-#country-list-section tbody tr:hover{
-	background-color: grey;
-}
+  cursor: pointer; }
+
+#country-detail-section {
+  text-align: center;
+  font-size: 0px; }
+  #country-detail-section table {
+    margin: 0 auto; }
+    #country-detail-section table th {
+      font-size: 1.5em; }
+    #country-detail-section table td:first-child {
+      text-align: right; }
+  #country-detail-section img {
+    width: 250px; }
+  #country-detail-section div {
+    width: 50%;
+    display: inline-block;
+    font-size: 16px;
+    vertical-align: top;
+    margin-top: 5em;
+    max-width: 500px; }
+
+#neighbours-table td:hover {
+  color: #fff; }
+
+#country-list-section tbody tr:hover {
+  background-color: rgba(255, 255, 255, 0.8);
+  color: #282d32; }
 
 td:not(:first-child) {
-  padding-top:10px;
-  padding-bottom:10px;
-}
+  padding-top: 10px;
+  padding-bottom: 10px; }
+
+td:first-child {
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px; }
+
+td:last-child {
+  border-bottom-right-radius: 4px;
+  border-top-right-radius: 4px; }

@@ -1,25 +1,29 @@
 <section id="country-list-section">
-	<input type="text" placeholder="Search countries" ng-model="searchCountry">
-	<table>
-		<thead>
-			<tr>
-				<th ng-click="setSort('name')">Name<span ng-show="sortType == 'name'" ng-class="sortArrow"></span></th>
-				<th ng-click="setSort('countryCode')">Country Code<span ng-show="sortType == 'countryCode'" ng-class="sortArrow"></span></th>
-				<th ng-click="setSort('capital')">Capital<span ng-show="sortType == 'capital'" ng-class="sortArrow"></span></th>
-				<th ng-click="setSort('areaInSqKm')">Area in km2<span ng-show="sortType == 'areaInSqKm'" ng-class="sortArrow"></span></th>
-				<th ng-click="setSort('population')">Population<span ng-show="sortType == 'population'" ng-class="sortArrow"></span></th>
-				<th ng-click="setSort('continent')">Continent<span ng-show="sortType == 'continent'" ng-class="sortArrow"></span></th>	
-			</tr>
-		</thead>
-		<tbody>
-			<tr ng-repeat="country in countries.list | orderBy:sortType:sortReverse | filter:searchCountry" ng-click="viewCountryDetails(country.countryCode)">
-				<td>{{country.countryName}}</a></td>
-				<td>{{country.countryCode}}</td>
-				<td>{{country.capital}}</td>
-				<td>{{country.areaInSqKm | number:0}}</td>
-				<td>{{country.population | number:0}}</td>
-				<td>{{country.continent}}</td>
-			</tr>
-		</tbody>
-	</table>
+	<div class="list-container">
+		<div id="search-container">
+			<input id="search-box" type="text" placeholder="Search countries" ng-model="searchCountry">
+		</div>
+		<table>
+			<thead>
+				<tr>
+					<th ng-click="setSort('name')">Name<span ng-show="sortType == 'name'" ng-class="sortArrow"></span></th>
+					<th ng-click="setSort('countryCode')">Country Code<span ng-show="sortType == 'countryCode'" ng-class="sortArrow"></span></th>
+					<th ng-click="setSort('capital')">Capital<span ng-show="sortType == 'capital'" ng-class="sortArrow"></span></th>
+					<th ng-click="setSort('areaInSqKm')">Area in km2<span ng-show="sortType == 'areaInSqKm'" ng-class="sortArrow"></span></th>
+					<th ng-click="setSort('population')">Population<span ng-show="sortType == 'population'" ng-class="sortArrow"></span></th>
+					<th ng-click="setSort('continent')">Continent<span ng-show="sortType == 'continent'" ng-class="sortArrow"></span></th>	
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="country in countries.list | orderBy:sortType:sortReverse | filter:searchCountry" ng-click="viewCountryDetails(country.countryCode)">
+					<td>{{country.countryName}}</a></td>
+					<td>{{country.countryCode}}</td>
+					<td>{{country.capital}}</td>
+					<td>{{country.areaInSqKm | number:0}}</td>
+					<td>{{country.population | number:0}}</td>
+					<td>{{country.continent}}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
 </section>
